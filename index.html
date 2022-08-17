@@ -6,12 +6,44 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
         <link rel='stylesheet' href='style.css'>
         <link rel='icon' href='images/library.png'>
+        <script src='main.js' defer></script>
     </head>
 
     <body>
+        <div class='header'>
+            <div class='container'>
+                <h1>library</h1>
+                <button type='button'>Account</button>
+            </div>
+        </div>
 
-
+        <div class='main-content'>
+            <button type='button' id='addBookBtn'>+ Add book</button>
+            <table>
+                <caption>Books</caption>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Pages</th>
+                    <th>Read Status</th>
+                </tr>
+                <tr>
+                    <td>Alice in Wonderland</td>
+                    <td>Lewis Carroll</td>
+                    <td>240</td>
+                    <td><button type='button' id='readStatusBtn'>Read</button></td>
+                    <td><button type='button' id='deleteBookBtn'>Delete</button></td>
+                </tr>
+            </table>
+        </div>
     </body>
+
+    <footer class='footer'>
+        <p>Copyright © 2022 beiyingseah&nbsp</p>
+        <a href='https://github.com/beiyingseah'>
+          <img src='images/GitHub-Mark-Dark_32px.png' alt='Github icon, a feline-cephalopod hybrid, known as Octocat.' width='20' height='20'> 
+        </a>
+    </footer>
 
 
 

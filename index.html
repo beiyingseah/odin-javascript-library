@@ -18,7 +18,25 @@
         </div>
 
         <div class='main-content'>
-            <button type='button' id='addBookBtn'>+ Add book</button>
+            <button type='button' id='addBookModalBtn'>+ Add book</button>
+            <div id ='simpleModal' class='modal'>
+                <form id='modalForm'>
+                    <fieldset>  
+                        <legend>Add a new book</legend>  
+                    <input required type='text' name='title' placeholder='Title'>
+                    <input type='text' name="author" id='author' placeholder='Author'>
+                    <input required type="number" name="number" id='number' placeholder='Pages'>
+                    <label class='switch'>Read?
+                        <input type='checkbox' name='readStatusToggle' id='readStatusToggle'>
+                        <span class='slider'></span>
+                    </label>
+                    <div class='form-status'>
+                        <button id='cancelBtn' type="submit">Cancel</button>
+                        <button id='submitBtn' type="submit">Submit</button>
+                    </div>
+                    </fieldset>
+                </form>
+            </div>
             <table>
                 <caption>Books</caption>
                 <tr>

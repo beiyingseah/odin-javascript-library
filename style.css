@@ -41,9 +41,51 @@ html, body {
     align-items: center;
 }
 
-#addBookBtn {
+#addBookModalBtn {
     margin: 3em;
 }
+
+/* MODAL FORM */
+.modal {
+    /* display:none; */
+    position: fixed;
+    z-index: 1;
+    left:0;
+    top:0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+#modalForm {
+    background-color: #f4f4f4;
+    margin: 20% auto;
+    padding: 20px;
+    width: 20%;
+}
+
+fieldset {
+    border: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+.form-status {
+    display: flex;
+    column-gap: 2rem;
+}
+
+#cancelBtn {
+    background-color: #9ea7aa;
+}
+
+#submitBtn {
+    background-color: #64ffda;
+}
+
+
 
 /* TABLE */
 table {
@@ -83,7 +125,7 @@ caption {
 .footer {
     font-family: Courier, 'Helvetica Neue', sans-serif;
     color: black;
-    text-align: center;
+    align-items: center;
     font-size: 1rem;
     display: flex;
     justify-content: center;

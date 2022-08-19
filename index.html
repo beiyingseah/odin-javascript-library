@@ -20,19 +20,19 @@
         <div class='main-content'>
             <button type='button' id='addBookModalBtn'>+ Add book</button>
             <div id ='simpleModal' class='modal'>
-                <form id='modalForm'>
+                <form id='modalForm' action='./main.js' method='post'>
                     <fieldset>  
                         <legend>Add a new book</legend>  
                     <input required type='text' name='title' placeholder='Title'>
-                    <input type='text' name="author" id='author' placeholder='Author'>
-                    <input required type="number" name="number" id='number' placeholder='Pages'>
+                    <input required type='text' name='author' placeholder='Author'>
+                    <input required type='number' name="pages" placeholder='Pages'>
                     <label class='switch'>Read?
-                        <input type='checkbox' name='readStatusToggle' id='readStatusToggle'>
+                        <input type='checkbox' name='readStatus' value='unread'>
                         <span class='slider'></span>
                     </label>
                     <div class='form-status'>
-                        <button id='cancelBtn' type="submit">Cancel</button>
-                        <button id='submitBtn' type="submit">Submit</button>
+                        <button id='cancelBtn' type='button'>Cancel</button>
+                        <button id='submitBtn' type='submit'>Submit</button>
                     </div>
                     </fieldset>
                 </form>
@@ -45,7 +45,7 @@
                     <th>Pages</th>
                     <th>Read Status</th>
                 </tr>
-                <tr>
+                <tr data-index-number='1'>
                     <td>Alice in Wonderland</td>
                     <td>Lewis Carroll</td>
                     <td>240</td>

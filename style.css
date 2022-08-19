@@ -47,7 +47,6 @@ html, body {
 
 /* MODAL FORM */
 .modal {
-    /* display:none; */
     position: fixed;
     z-index: 1;
     left:0;
@@ -56,11 +55,13 @@ html, body {
     width: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
 
 #modalForm {
     background-color: #f4f4f4;
-    margin: 20% auto;
     padding: 20px;
     width: 20%;
 }
@@ -84,7 +85,6 @@ fieldset {
 #submitBtn {
     background-color: #64ffda;
 }
-
 
 
 /* TABLE */

@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang='en'>
     <head>
+         <!--------- Fundamental Page Needs --------->
         <title>Javascript Library</title>
         <meta charset='UTF-8'>
         <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-        <link rel='stylesheet' href='style.css'>
+        <link rel='stylesheet ' href='style.css'>
         <link rel='icon' href='images/library.png'>
         <script src='main.js' defer></script>
     </head>
 
     <body>
+        <!--------- Primary Page Layout --------->
         <div class='header'>
             <div class='container'>
                 <h1>library</h1>
@@ -18,16 +20,16 @@
         </div>
 
         <div class='main-content'>
-            <button type='button' id='addBookModalBtn'>+ Add book</button>
+            <button type='button' id='addBookBtn'>+ Add book</button>
             <div id ='simpleModal' class='modal'>
-                <form id='modalForm' action='./main.js' method='post'>
+                <form id='modalForm' action=''>
                     <fieldset>  
                         <legend>Add a new book</legend>  
-                    <input required type='text' name='title' placeholder='Title'>
-                    <input required type='text' name='author' placeholder='Author'>
-                    <input required type='number' name="pages" placeholder='Pages'>
-                    <label class='switch'>Read?
-                        <input type='checkbox' name='readStatus' value='unread'>
+                    <input required type='text' name='title' placeholder='Title' value=''>
+                    <input required type='text' name='author' placeholder='Author' value=''>
+                    <input required type='number' name='pages' placeholder='Pages' value=''>
+                    <label>Read?
+                        <input id='readStatusCheckbox' type='checkbox' name='readStatus'>
                         <span class='slider'></span>
                     </label>
                     <div class='form-status'>
@@ -49,8 +51,8 @@
                     <td>Alice in Wonderland</td>
                     <td>Lewis Carroll</td>
                     <td>240</td>
-                    <td><button type='button' id='readStatusBtn'>Read</button></td>
-                    <td><button type='button' id='deleteBookBtn'>Delete</button></td>
+                    <td><button class='readStatusBtn' type='button'>Read</button></td>
+                    <td><button class='deleteBookBtn' type='button'>Delete</button></td>
                 </tr>
             </table>
         </div>
@@ -62,7 +64,6 @@
           <img src='images/GitHub-Mark-Dark_32px.png' alt='Github icon, a feline-cephalopod hybrid, known as Octocat.' width='20' height='20'> 
         </a>
     </footer>
-
-
+<!--------- End of Document --------->
 
 </html>

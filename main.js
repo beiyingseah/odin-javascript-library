@@ -1,70 +1,89 @@
-// Initialise key global variables
-const myLibrary = [ {title: 'Alice in Wonderland', author: 'Lewis Carroll', pages: 240, readStatus: 'read'}, {}];
+/** Initialise key global variables and states **/
+const DEFAULT_DATA = [{title: 'Alice in Wonderland', author: 'Lewis Carroll', pages: 240, readStatus: true}, {title: 'Hard-Boiled Wonderland and the End of the World', author: 'Haruki Murakami', pages: 400, readStatus: false}];
 
-// the book constructor & prototype
-function Book(title, author, pages, readStatus) {
-   this.title = title;
-   this.author = author;
-   this.pages = pages;
-   this.readStatus = readStatus;
-}
-
-Book.prototype.toggleReadStatus() {
-    let a
-}
+const library = DEFAULT_DATA;
 
 
-/* Form-related events to capture */ 
-// Note: Form only has client-side validation
+/** Book Object **/
+// using class inheritance
+
+class Book {
+    constructor(title, author, pages, readStatus) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.readStatus = readStatus;
+    }
+    toggleReadStatus() {
+        this.readStatus = !this.readStatus;
+    }
+ }
+
+
+/** Interactive variavbles **/ 
+/* 
+Get form elements
+Note: Form only has client-side validation
+ */
+let addBookBtn = document.getElementById('addBookBtn');
 let form = document.getElementById('modalForm');
-let readStatus = updateReadStatus();
+let modal = document.getElementById('simpleModal');
+let cancelBtn = document.getElementById('cancelBtn');
+let title = form.elements.title.value;
+let author = form.elements.author.value;
+let pages = form.elements.pages.value;
+let readStatusCheckbox = form.elements.readStatus.checked;
 
-// listen to submit button clicked added
-form.addEventListener('submit', function(e) {
-    let title = form.elements['title']
-    let author = form.elements['author']
-    let pages = form.elements['page']
-    let readStatus = 
-})
+// Get table elements
+let readStatusBtnList = document.getElementsByClassName('readStatusBtn');
+let deleteBtnList = document.getElementsByClassName('deleteBookBtn');
 
+
+/** Event listeners **/
+/* For modal form */
+addBookBtn.onclick = () => openModal();
+cancelBtn.onclick = () => closeModal();
+window.onclick = (e) => closeModalfromOutsideClick(e);
+
+// For submit button
+form.onsubmit = () => {
+    addBookToLibrary(title, author, pages, readStatusCheckbox);
+    closeModal();
+}
+
+
+/** Helper functions for library **/
 // Create new book object with 'new' keyword
 function createNewBook(title, author, pages, readStatus) {
-    let book = new Book(title, author, pages, readStatus);
+    let newBook = new Book(title, author, pages, readStatus);
+    return newBook;
 }
 
-// Add new book object to library array
-function addBookToArray(book) {
-
+/**  Dynamically add and remove row to a HTML table **/
+function renderLibrary(newIndex) {
+    return null; 
 }
 
-/* Dynamically add and remove row to a HTML table */
-function addBookToTable(book) {
-
+function addBookToLibrary(title, author, pages, readStatus) {
+    let newBook = createNewBook(title, author, pages, readStatus);
+    console.log(newBook);
+    let newIndex = library.push(newBook) - 1;
+    console.log(library);
+    console.log(newIndex);
+    renderLibrary(newIndex);
 }
 
-function removeBookFromArray(index) {
-
+/* function removeBookFromLibrary(data-index-number) {
+    renderLibrary();
 }
+*/
 
-function removeBookFromTable(index) {
-
+/** Helper functions for modal form **/
+// Function to clear form 
+function clearForm() {
+    //resets form element's default values (in this case, as per the html, fields are empty strings by default)
+    form.reset();
 }
-
-
-/* Modal form functionality for adding a new book */
-// Get modal element
-let modal = document.getElementById('simpleModal');
-// Get open modal button 
-let addBookModalBtn = document.getElementById('addBookModalBtn');
-// Get cancel button
-let cancelBtn = document.getElementById('cancelBtn');
-
-// Listen for open click
-addBookModalBtn.addEventListener('click', openModal);
-// Listen for cancel click
-cancelBtn.addEventListener('click', closeModal);
-// Listen for outside click
-window.addEventListener('click', closeModalfromOutsideClick)
 
 // Function to open modal 
 function openModal() {
@@ -74,8 +93,7 @@ function openModal() {
 // Function to close modal
 function closeModal() {
     modal.style.display = 'none';
-    //resets form element's default values (in this case, as per the html, fields are empty strings by default)
-    document.getElementById('modalForm').reset();
+    clearForm();
 }
 
 // Function to close modal if user clicks outside of the form
@@ -84,6 +102,7 @@ function closeModalfromOutsideClick(e) {
         modal.style.display = 'none';
     }
 }
+
 
 
 /* MAIN */

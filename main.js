@@ -29,10 +29,17 @@ let addBookBtn = document.getElementById('addBookBtn');
 let form = document.getElementById('modalForm');
 let modal = document.getElementById('simpleModal');
 let cancelBtn = document.getElementById('cancelBtn');
+
+let titleField = form.elements.title;
+let authorField = form.elements.author;
+let pagesField = form.elements.pages;
+let readStatusCheckboxField = form.elements.readStatus;
+
 let title = form.elements.title.value;
 let author = form.elements.author.value;
 let pages = form.elements.pages.value;
 let readStatusCheckbox = form.elements.readStatus.checked;
+
 
 // Get table elements
 let readStatusBtnList = document.getElementsByClassName('readStatusBtn');
@@ -44,6 +51,21 @@ let deleteBtnList = document.getElementsByClassName('deleteBookBtn');
 addBookBtn.onclick = () => openModal();
 cancelBtn.onclick = () => closeModal();
 window.onclick = (e) => closeModalfromOutsideClick(e);
+titleField.oninput = (e) => {
+    title = e.target.value;
+}
+authorField.oninput = (e) => {
+    author = e.target.value;
+}
+
+pagesField.oninput = (e) => {
+    pages = e.target.value;
+}
+
+readStatusCheckboxField.oninput = () => {
+    readStatusCheckbox = !readStatusCheckbox;
+}
+
 
 // For submit button
 form.onsubmit = () => {
@@ -100,6 +122,7 @@ function closeModal() {
 function closeModalfromOutsideClick(e) {
     if (e.target == modal) {
         modal.style.display = 'none';
+        clearForm();
     }
 }
 

@@ -29,6 +29,7 @@ let addBookBtn = document.getElementById('addBookBtn');
 let form = document.getElementById('modalForm');
 let modal = document.getElementById('simpleModal');
 let cancelBtn = document.getElementById('cancelBtn');
+let submitBtn = document.getElementById('submitBtn');
 
 let titleField = form.elements.title;
 let authorField = form.elements.author;
@@ -42,6 +43,7 @@ let readStatusCheckbox = form.elements.readStatus.checked;
 
 
 // Get table elements
+let tbody = document.querySelector('tbody');
 let readStatusBtnList = document.getElementsByClassName('readStatusBtn');
 let deleteBtnList = document.getElementsByClassName('deleteBookBtn');
 
@@ -68,7 +70,8 @@ readStatusCheckboxField.oninput = () => {
 
 
 // For submit button
-form.onsubmit = () => {
+form.onsubmit = (e) => {
+    e.preventDefault()
     addBookToLibrary(title, author, pages, readStatusCheckbox);
     closeModal();
 }
@@ -81,10 +84,19 @@ function createNewBook(title, author, pages, readStatus) {
     return newBook;
 }
 
-/**  Dynamically add and remove row to a HTML table **/
-function renderLibrary(newIndex) {
-    return null; 
+/* function addRow(newBook) {
+    tbody.innerHTML += `
+        <tr>
+            <td>${newBook.title}</td>
+            <td>${newBook.author}</td>
+            <td>${newBook.pages}</td>
+            <td><button class='readStatusBtn' type='button'>Read</button></td>
+            <td><button class='deleteBookBtn' type='button'>Delete</button></td>
+        </tr>
+        `;
 }
+*/
+
 
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
@@ -92,13 +104,35 @@ function addBookToLibrary(title, author, pages, readStatus) {
     let newIndex = library.push(newBook) - 1;
     console.log(library);
     console.log(newIndex);
-    renderLibrary(newIndex);
-}
-
-/* function removeBookFromLibrary(data-index-number) {
     renderLibrary();
 }
-*/
+
+function removeBookFromLibrary() {
+    //something pop from library
+    removeRow();
+}
+
+
+/**  Dynamically add and remove row to a HTML table **/
+function renderLibrary() {
+    tbody.innerHTML = ''; //reset innerHTML upon rendering (like a "table refresh")
+    library.forEach((book) => {
+        console.log(book.title);
+        let bookrow = `
+        <tr>
+            <td>${book.title}</td>
+            <td>${book.author}</td>
+            <td>${book.pages}</td>
+            <td><button class='readStatusBtn' type='button'>Read</button></td>
+            <td><button class='deleteBookBtn' type='button'>Delete</button></td>
+        </tr>
+        `;
+        tbody.insertAdjacentHTML('afterbegin', bookrow);
+    });
+}
+
+//<tr data-index-number='1'>
+
 
 /** Helper functions for modal form **/
 // Function to clear form 
@@ -127,5 +161,6 @@ function closeModalfromOutsideClick(e) {
 }
 
 
-
 /* MAIN */
+renderLibrary();
+console.log('render library main');

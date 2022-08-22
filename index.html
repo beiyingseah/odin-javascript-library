@@ -22,7 +22,7 @@
         <div class='main-content'>
             <button type='button' id='addBookBtn'>+ Add book</button>
             <div id ='simpleModal' class='modal'>
-                <form id='modalForm' action=''>
+                <form id='modalForm'>
                     <fieldset>  
                         <legend>Add a new book</legend>  
                     <input required type='text' name='title' placeholder='Title' value=''>
@@ -41,19 +41,17 @@
             </div>
             <table>
                 <caption>Books</caption>
-                <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>Pages</th>
-                    <th>Read Status</th>
-                </tr>
-                <tr data-index-number='1'>
-                    <td>Alice in Wonderland</td>
-                    <td>Lewis Carroll</td>
-                    <td>240</td>
-                    <td><button class='readStatusBtn' type='button'>Read</button></td>
-                    <td><button class='deleteBookBtn' type='button'>Delete</button></td>
-                </tr>
+                <!-- Table headings -->
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Pages</th>
+                        <th>Read Status</th>
+                    </tr>
+                </thead>
+                <!-- Table rows & content to be added dynamically -->
+                <tbody></tbody>
             </table>
         </div>
     </body>

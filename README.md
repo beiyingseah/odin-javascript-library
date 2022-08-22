@@ -30,8 +30,7 @@ EXTRA CREDITS
 3. Since there are more "active" inputs, add an 'Edit' functionality. 
 4a. Add Counter to table (BOOKS READ: 0, BOOKS UNREAD: 0, TOTAL BOOKS: 0)
 4b. Add a 'Notes'/'Review' functionality to record thoughts about and/or learnings from books read
-5. Improve toggle UI and do away with the 'Read?' label
-https://www.tutorialstonight.com/css-toggle-switch-with-text
+5. Add 'Date added' stamp 
 
 REFERENCES FOR THIS PROJECT
 - Assets

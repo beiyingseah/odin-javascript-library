@@ -84,7 +84,7 @@ function createNewBook(title, author, pages, readStatus) {
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
     console.log(newBook);
-    let newIndex = library.push(newBook) - 1;
+    let newIndex = library.unshift(newBook) - 1;
     console.log(library);
     console.log(newIndex);
     renderLibrary();
@@ -92,14 +92,16 @@ function addBookToLibrary(title, author, pages, readStatus) {
 
 function removeBookFromLibrary() {
     //something pop from library
-    removeRow();
+    //see YT vid @ 6:35
 }
 
 function renderLibrary() {
     tbody.innerHTML = ''; //reset innerHTML upon rendering (like a "table refresh")
     library.forEach((book) => {
         console.log(book.title);
-        let bookrow = `
+        //let bookIndex = library.findIndex(book => book.title); 
+        //console.log(bookIndex);
+        let row = `
         <tr>
             <td>${book.title}</td>
             <td>${book.author}</td>
@@ -108,8 +110,17 @@ function renderLibrary() {
             <td><button class='deleteBookBtn' type='button'>Delete</button></td>
         </tr>
         `;
-        tbody.insertAdjacentHTML('afterbegin', bookrow);
+        tbody.insertAdjacentHTML('beforeend', row);
+
+        // loop over rows and assign index to each via data-attribute
+        let rows = document.querySelectorAll('tbody tr');
+        for (i = 0; i < rows.length; i++) {
+            rows[i].dataset.index = i;
+            console.log(tbody.innerHTML)
+          }
+
     });
+
 }
 
 //<tr data-index-number='1'>

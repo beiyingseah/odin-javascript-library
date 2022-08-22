@@ -20,7 +20,7 @@ class Book {
  }
 
 
-/** Interactive variavbles **/ 
+/*** Interactive variavbles ***/ 
 /* 
 Get form elements
 Note: Form only has client-side validation
@@ -41,14 +41,10 @@ let author = form.elements.author.value;
 let pages = form.elements.pages.value;
 let readStatusCheckbox = form.elements.readStatus.checked;
 
-
 // Get table elements
-let tbody = document.querySelector('tbody');
-let readStatusBtnList = document.getElementsByClassName('readStatusBtn');
-let deleteBtnList = document.getElementsByClassName('deleteBookBtn');
+let tbody = document.querySelector('tbody'); 
 
-
-/** Event listeners **/
+/*** Event listeners ***/
 /* For modal form */
 addBookBtn.onclick = () => openModal();
 cancelBtn.onclick = () => closeModal();
@@ -77,26 +73,13 @@ form.onsubmit = (e) => {
 }
 
 
-/** Helper functions for library **/
+/*** Library-Table interactivity ***/
+/** Add & remove from library **/
 // Create new book object with 'new' keyword
 function createNewBook(title, author, pages, readStatus) {
     let newBook = new Book(title, author, pages, readStatus);
     return newBook;
 }
-
-/* function addRow(newBook) {
-    tbody.innerHTML += `
-        <tr>
-            <td>${newBook.title}</td>
-            <td>${newBook.author}</td>
-            <td>${newBook.pages}</td>
-            <td><button class='readStatusBtn' type='button'>Read</button></td>
-            <td><button class='deleteBookBtn' type='button'>Delete</button></td>
-        </tr>
-        `;
-}
-*/
-
 
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
@@ -112,8 +95,6 @@ function removeBookFromLibrary() {
     removeRow();
 }
 
-
-/**  Dynamically add and remove row to a HTML table **/
 function renderLibrary() {
     tbody.innerHTML = ''; //reset innerHTML upon rendering (like a "table refresh")
     library.forEach((book) => {
@@ -133,6 +114,10 @@ function renderLibrary() {
 
 //<tr data-index-number='1'>
 
+/** Update library/table **/
+function changeStatus(book) {
+
+} 
 
 /** Helper functions for modal form **/
 // Function to clear form 

@@ -84,9 +84,9 @@ function createNewBook(title, author, pages, readStatus) {
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
     console.log(newBook);
-    let newIndex = library.unshift(newBook) - 1;
+    //let newIndex = library.unshift(newBook) - 1;
     console.log(library);
-    console.log(newIndex);
+    //console.log(newIndex);
     renderLibrary();
 }
 

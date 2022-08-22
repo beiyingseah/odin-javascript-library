@@ -31,6 +31,7 @@ EXTRA CREDITS
 4a. Add Counter to table (BOOKS READ: 0, BOOKS UNREAD: 0, TOTAL BOOKS: 0)
 4b. Add a 'Notes'/'Review' functionality to record thoughts about and/or learnings from books read
 5. Add 'Date added' stamp 
+6. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects {{1: {}}, 2:{}, etc.}, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
 
 REFERENCES FOR THIS PROJECT
 - Assets

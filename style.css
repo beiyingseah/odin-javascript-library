@@ -61,6 +61,7 @@ button:hover {
 
 #addBookBtn {
     margin: 3em;
+    background-color: rgb(100, 255, 218, 1);
 }
 
 /*** MODAL FORM ***/
@@ -128,7 +129,7 @@ input {
     padding: 0 80px;
 }
 
-#submitBtn:hover{
+#submitBtn:hover, #addBookBtn:hover {
     background-color: hsl(166, 70%, 70%);
 }
 
@@ -153,6 +154,7 @@ table {
 
 table td {
     text-align: left;
+    font-weight: 200;
 }
 
 td, th {

@@ -72,6 +72,11 @@ form.onsubmit = (e) => {
     closeModal();
 }
 
+// For 'delete book' button
+tbody.addEventListener('click', removeBookFromLibrary);
+
+// For 'change read status' button
+tbody.addEventListener('click', changeReadStatus);
 
 /*** Library-Table interactivity ***/
 /** Add & remove from library **/
@@ -84,16 +89,21 @@ function createNewBook(title, author, pages, readStatus) {
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
     console.log(newBook);
-    //let newIndex = library.unshift(newBook) - 1;
+    library.unshift(newBook);
     console.log(library);
     //console.log(newIndex);
     renderLibrary();
 }
 
-function removeBookFromLibrary() {
-    //something pop from library
-    //see YT vid @ 6:35
+// respond to click events that has the 'deleteBookBtn' class (that has been dynamically generated
+function removeBookFromLibrary(e) {
+    if (e.target.classList.contains('deleteBookBtn')) {
+        let index = e.target.parentNode.parentNode.dataset.index
+        library.splice(index, 1);
+        renderLibrary();
+    }
 }
+
 
 function renderLibrary() {
     tbody.innerHTML = ''; //reset innerHTML upon rendering (like a "table refresh")
@@ -101,12 +111,22 @@ function renderLibrary() {
         console.log(book.title);
         //let bookIndex = library.findIndex(book => book.title); 
         //console.log(bookIndex);
+
+        // assign readStatus text
+        let readStatusText = '';
+        if (book.readStatus) {
+            readStatusText = 'read';
+        }
+        else {
+            readStatusText = 'not read'
+        }
+        
         let row = `
         <tr>
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.pages}</td>
-            <td><button class='readStatusBtn' type='button'>Read</button></td>
+            <td><button class='readStatusBtn' type='button'>${readStatusText}</button></td>
             <td><button class='deleteBookBtn' type='button'>Delete</button></td>
         </tr>
         `;
@@ -118,17 +138,32 @@ function renderLibrary() {
             rows[i].dataset.index = i;
             console.log(tbody.innerHTML)
           }
-
     });
-
 }
 
-//<tr data-index-number='1'>
-
 /** Update library/table **/
-function changeStatus(book) {
+function changeReadStatus(e) {
+    if (e.target.classList.contains('readStatusBtn')) {
+        console.log(e.target);
+        let index = Number(e.target.parentNode.parentNode.dataset.index);
+        console.log(typeof index);
+        let readStatusText = e.target.innerHTML;
+        console.log(readStatusText);
+        console.log(library[index]);
+        console.log(`before: ${library[index].readStatus}`);
+        library[index].toggleReadStatus();
+        console.log(`after: ${library[index].readStatus}`);
 
-} 
+        if (readStatusText === 'read') {
+            readStatusText = 'not read';
+        }
+        else if (readStatusText === 'not read') {
+            readStatusText = 'read';
+        }
+        renderLibrary();
+    }
+}
+
 
 /** Helper functions for modal form **/
 // Function to clear form 

@@ -25,13 +25,17 @@ EXTRA CREDITS
 - Added CSS transition to opening & closing of modal form for a more seamless UX
 
  FUTURE VERSIONS
-1. Add the active state, 'READING', with another field for start date.
-2. Add another field for end date.
-3. Since there are more "active" inputs, add an 'Edit' functionality. 
-4a. Add Counter to table (BOOKS READ: 0, BOOKS UNREAD: 0, TOTAL BOOKS: 0)
-4b. Add a 'Notes'/'Review' functionality to record thoughts about and/or learnings from books read
-5. Add 'Date added' stamp 
-6. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects {{1: {}}, 2:{}, etc.}, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
+1. Add more fields
+   - Add the active state, 'READING', with another field for start date.
+   - Add another field for end date.
+   - Since there are more "active" inputs, add an 'Edit' functionality. 
+   - Add Counter to table (BOOKS READ: 0, BOOKS UNREAD: 0, TOTAL BOOKS: 0)
+   - Add a 'Notes'/'Review' functionality to record thoughts about and/or learnings from books read
+   - Add 'Date added' stamp 
+2. Improve design (obviously! Version 1 is a bare-bones app)
+   - Improve animation of opening the modal form. [Example](https://michalosman.github.io/library/)
+   - Improve table & button styling
+3. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects {{1: {}}, 2:{}, etc.}, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
 
 REFERENCES FOR THIS PROJECT
 - Assets

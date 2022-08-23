@@ -1,9 +1,3 @@
-/** Initialise key global variables and states **/
-const DEFAULT_DATA = [{title: 'Alice in Wonderland', author: 'Lewis Carroll', pages: 240, readStatus: true}, {title: 'Hard-Boiled Wonderland and the End of the World', author: 'Haruki Murakami', pages: 400, readStatus: false}];
-
-const library = DEFAULT_DATA;
-
-
 /** Book Object **/
 // using class inheritance
 
@@ -18,6 +12,13 @@ class Book {
         this.readStatus = !this.readStatus;
     }
  }
+ 
+/** Initialise key global variables and states **/
+const BOOK_0 = new Book('Alice in Wonderland', 'Lewis Carroll', 240, true);
+const BOOK_1 = new Book('Hard-Boiled Wonderland and the End of the World', 'Haruki Murakami', 400, false);
+
+const DEFAULT_DATA = [BOOK_0, BOOK_1];
+const library = DEFAULT_DATA;
 
 
 /*** Interactive variavbles ***/ 

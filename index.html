@@ -24,17 +24,16 @@
             <div id ='simpleModal' class='modal'>
                 <form id='modalForm'>
                     <fieldset>  
-                        <legend>Add a new book</legend>  
+                        <legend>Add new book</legend>  
                     <input required type='text' name='title' placeholder='Title' value=''>
                     <input required type='text' name='author' placeholder='Author' value=''>
                     <input required type='number' name='pages' placeholder='Pages' value=''>
-                    <label>Read?
+                    <label class='checkboxContainer'>Read?
                         <input id='readStatusCheckbox' type='checkbox' name='readStatus'>
-                        <span class='slider'></span>
                     </label>
                     <div class='form-status'>
-                        <button id='cancelBtn' type='button'>Cancel</button>
                         <button id='submitBtn' type='submit'>Submit</button>
+                        <button id='cancelBtn' type='button'>Cancel</button>
                     </div>
                     </fieldset>
                 </form>

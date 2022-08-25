@@ -34,7 +34,7 @@ EXTRA CREDITS
 2. Improve design (obviously! Version 1 is a bare-bones app)
    - Improve animation of opening the modal form. [Example](https://michalosman.github.io/library/)
    - Improve table & button styling e.g. [toggle switch for ReadStatus button]
-3. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects {{1: {}}, 2:{}, etc.}, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
+3. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects `{{1: {}}, 2:{}, …}`, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
 
 REFERENCES FOR THIS PROJECT
 - Assets

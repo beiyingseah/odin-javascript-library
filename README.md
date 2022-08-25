@@ -9,7 +9,6 @@ TODOs
 [Key functionality]
 1. "Store books"
 - Create books as objects 
-- Add a function to the script ("not the constructor") -> Translation: define functions on the prototype of the Book object instead) that takes the user's input and store the new book objects into an array
 2. Write a function that loops through the array and displays each book on the page
 [Layout]
 1. Display the cards in some sort of table, or each on their own 'card'
@@ -34,7 +33,7 @@ EXTRA CREDITS
    - Add 'Date added' stamp 
 2. Improve design (obviously! Version 1 is a bare-bones app)
    - Improve animation of opening the modal form. [Example](https://michalosman.github.io/library/)
-   - Improve table & button styling
+   - Improve table & button styling e.g. [toggle switch for ReadStatus button]
 3. [Scaleability] Change data structure in which book entries are stored, by converting array of objects to object of objects {{1: {}}, 2:{}, etc.}, improve data input and retrieval (i.e. deleting an entry by index vs by key, where the latter will require shifting up each of the remaining entries by one each time something is deleted which is O(n) time whereas the latter is O(1) time.)
 
 REFERENCES FOR THIS PROJECT

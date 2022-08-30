@@ -1,4 +1,4 @@
-# javascript-library
+# Project 8: javascript-library
 
 For my 8th project for The Odin Project, I build a small library app using Objects and Object Constructors. Local Storage is used for now. 
 

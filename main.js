@@ -37,9 +37,9 @@ let authorField = form.elements.author;
 let pagesField = form.elements.pages;
 let readStatusCheckboxField = form.elements.readStatus;
 
-let title = form.elements.title.value;
-let author = form.elements.author.value;
-let pages = form.elements.pages.value;
+let title = titleField.value;
+let author = authorField.value;
+let pages = pagesField.value;
 let readStatusCheckbox = form.elements.readStatus.checked;
 
 // Get table elements
@@ -50,9 +50,11 @@ let tbody = document.querySelector('tbody');
 addBookBtn.onclick = () => openModal();
 cancelBtn.onclick = () => closeModal();
 window.onclick = (e) => closeModalfromOutsideClick(e);
+
 titleField.oninput = (e) => {
     title = e.target.value;
 }
+
 authorField.oninput = (e) => {
     author = e.target.value;
 }
@@ -89,9 +91,7 @@ function createNewBook(title, author, pages, readStatus) {
 
 function addBookToLibrary(title, author, pages, readStatus) {
     let newBook = createNewBook(title, author, pages, readStatus);
-    console.log(newBook);
     library.unshift(newBook);
-    console.log(library);
     //console.log(newIndex);
     renderLibrary();
 }
@@ -109,7 +109,6 @@ function removeBookFromLibrary(e) {
 function renderLibrary() {
     tbody.innerHTML = ''; //reset innerHTML upon rendering (like a "table refresh")
     library.forEach((book) => {
-        console.log(book.title);
         //let bookIndex = library.findIndex(book => book.title); 
         //console.log(bookIndex);
 
@@ -137,23 +136,17 @@ function renderLibrary() {
         let rows = document.querySelectorAll('tbody tr');
         for (i = 0; i < rows.length; i++) {
             rows[i].dataset.index = i;
-            console.log(tbody.innerHTML)
           }
+        let test = document.querySelectorAll('[data-index]');
     });
 }
 
 /** Update library/table **/
 function changeReadStatus(e) {
     if (e.target.classList.contains('readStatusBtn')) {
-        console.log(e.target);
         let index = Number(e.target.parentNode.parentNode.dataset.index);
-        console.log(typeof index);
         let readStatusText = e.target.innerHTML;
-        console.log(readStatusText);
-        console.log(library[index]);
-        console.log(`before: ${library[index].readStatus}`);
         library[index].toggleReadStatus();
-        console.log(`after: ${library[index].readStatus}`);
 
         if (readStatusText === 'read') {
             readStatusText = 'not read';
@@ -195,4 +188,3 @@ function closeModalfromOutsideClick(e) {
 
 /* MAIN */
 renderLibrary();
-console.log('render library main');

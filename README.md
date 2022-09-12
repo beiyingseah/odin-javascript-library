@@ -2,7 +2,7 @@
 
 For my 8th project for The Odin Project, I build a small library app using Objects and Object Constructors. Local Storage is used for now. 
 
-APPLYING MY LEARNINGS FROM TOP UP TILL NOW
+SOME KEY LEARNINGS I APPLIED FROM TOP
 - To translate non-technical briefs to technical specs based on concepts previously taught, such as CSS units ('em' and 'rem'), form components & validation, HTML table, and DOM Manipulation & Events (event listeners, HTML element or class selectors, etc.)
 
 TODOs
